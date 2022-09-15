@@ -142,16 +142,15 @@ button {
 }
 
 #histories {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap:8px;
 }
 
 .card {
-  width: 100%;
-  height: 100%;
-  padding: 50px;
+  padding:40px;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   padding: 20px 30px;
@@ -186,13 +185,25 @@ button {
     padding: 0 20px;
     width: 100%;
   }
+
+  #histories{
+    display: block;
+  }
+
+  #question{
+    height: 200px;
+  }
+
+  #display{
+    font-size: 20px;
+    padding: 12px;
+  }
   .card {
     flex-direction: column;
   }
 }
 
 #blog-part{
-  text-align: center;
   margin: 4px;
   color: white;
 }
