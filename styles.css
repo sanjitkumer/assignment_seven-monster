@@ -190,3 +190,9 @@ button {
     flex-direction: column;
   }
 }
+
+#blog-part{
+  text-align: center;
+  margin: 4px;
+  color: white;
+}
