@@ -1,6 +1,6 @@
 const display = document.getElementById("display");
 const question = document.getElementById("question");
-const startBtn = document.getElementById("start");
+const startBtn = document.getElementById("starts");
 const countdownOverlay = document.getElementById("countdown");
 const resultModal = document.getElementById("result");
 const modalBackground = document.getElementById("modal-background");
@@ -46,7 +46,9 @@ const typeController = (e) => {
     display.innerHTML += `<span class="green">${newLetter === " " ? "▪" : newLetter}</span>`;
   } else {
     display.innerHTML += `<span class="red">${newLetter === " " ? "▪" : newLetter}</span>`;
+    errorCount++
   }
+  console.log(errorCount);
 
   // check if given question text is equal to user typed text
   if (questionText === userText) {
@@ -107,13 +109,13 @@ const start = () => {
   countdownOverlay.style.display = "flex";
 
   const startCountdown = setInterval(() => {
-    countdownOverlay.innerHTML = '<h1>${count}</h1>';
+    countdownOverlay.innerHTML = `<h1>${count}</h1>`;
 
     // finished timer
     if (count == 0) {
       // -------------- START TYPING -----------------
       document.addEventListener("keydown", typeController);
-      countdownOverlay.style.display = "flex";
+      countdownOverlay.style.display = "none";
       display.classList.remove("inactive");
 
       clearInterval(startCountdown);
@@ -135,5 +137,5 @@ setInterval(() => {
   const timeSpent = (currentTime - startTime) / 1000;
 
 
-  document.getElementById("show-time").innerHTML = `${startTime ? timeSpent : 0} seconds`;
+  document.getElementById("show-time").innerHTML = `${parseInt(startTime ? timeSpent : 0)} seconds`;
 }, 1000);
